@@ -1,56 +1,131 @@
-﻿//Skriv ett program som frågar efter användarens namn och skriver ut en hälsning på konsolen.
-//Om namnet är "David" ska det skriva ut "Hej David!"
+﻿#region Uppgift 11 med extra
+string[] siffror = new string[10] { "noll", "ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio" };
 
-Console.WriteLine("Vad heter du?");
-string name = Console.ReadLine();
+string input11 = Console.ReadLine();
 
-Console.WriteLine("Hur många gånger ska jag hälsa?");
-string number = Console.ReadLine();
-int numberAsInt = int.Parse(number);
+string output = string.Empty;
 
-for (int i = 0; i < numberAsInt; i++)
+foreach (var tecken in input11)
 {
-    Console.WriteLine($"Hej {name}!");
+    string teckenString = "" + tecken;
+    int inputTal = int.Parse(teckenString);
+    output += siffror[inputTal] + "-";
 }
 
+//Alternativ lösning
+//for (int i = 0; i < input11.Length; i++)
+//{
+//    string teckenString = "" + input11[i];
+//    int inputTal = int.Parse(teckenString);
+//    output += siffror[inputTal];
+//    if (i < input11.Length-1)
+//    {
+//        output += "-";
+//    }
+//}
 
-//Skriv ett program som frågar användaren efter ett lösenord.
-//Hitta på ett hemligt lösenord och spara det i en variabel.
-//När användaren har skrivit in ett lösenord ska programmet jämföra med det
-//sparade lösenordet och skriva ut om det var rätt eller inte. Använd en if-sats.
+//output = output.Substring(0, output.Length - 1);
 
-Console.WriteLine("Ange lösenord:");
-string password = Console.ReadLine();
-string secretPassword = "123";
+Console.WriteLine(output);
+#endregion
 
-if (password == secretPassword)
+
+# region Uppgift 14
+
+//Skapa en lista med alla vokaler
+char[] vokaler = new char[] { 'a', 'o', 'u', 'i', 'e', 'å', 'ä', 'ö', 'y' };
+
+//Ta emot och spara en text från användaren
+string input14 = Console.ReadLine();
+char[] inputArr = input14.ToCharArray();
+
+
+//För varje tecken i texten
+for (int i = 0; i < inputArr.Length; i++)
 {
-    Console.WriteLine("Det var RÄTT lösenord!");
-}
-else
-{
-    Console.WriteLine("Det var FEL lösenord!");
-}
+    //    Om tecken är vokal
+    for (int j = 0; j < vokaler.Length; j++)
+    {
+        if (input14[i] == vokaler[j])
+        {
+            //    ersätt med *
+            inputArr[i] = '*';
+            break;
+        }
+    }
 
-// Skriv ett program som frågar användaren efter ett tal.
-// Det ska skriva ut om talet är mindre än 100, lika med 100 eller större.
-
-Console.WriteLine("Ange ett tal:");
-string num = Console.ReadLine();
-int numAsInt = int.Parse(num);
-
-if (numAsInt < 100)
-{
-    Console.WriteLine("Talet är mindre än 100");
-}
-else if (numAsInt == 100)
-{
-    Console.WriteLine("Talet är lika med 100");
-
-}
-else if (numAsInt > 100)
-{
-    Console.WriteLine("Talet är större än 100");
-
+    Console.Write(inputArr[i]);
 }
 
+//Alternativ lösning
+//for (int i = 0; i < input.Length; i++)
+//{
+//    if (vokaler.Contains(input[i]))
+//    {
+//        //    ersätt med *
+//        inputArr[i] = '*';
+//    }
+//}
+
+// Skriv ut den förändrade texten
+//string output = new string(inputArr);
+//Console.WriteLine(output);
+
+#endregion
+
+
+#region Uppgift 14 Extra
+
+//Niklas -> NoNikoklolasos
+
+//char[] vokaler = new char[] { 'a', 'o', 'u', 'i', 'e', 'å', 'ä', 'ö', 'y' };
+
+////Ta emot och spara en text från användaren
+//string input = Console.ReadLine();
+//string output = string.Empty;
+
+////För varje tecken i texten
+//for (int i = 0; i < input.Length; i++)
+//{
+//    string temp = string.Empty;
+//    output += input[i];
+//    if (vokaler.Contains(input[i]))
+//    {
+//        continue;
+//    }
+//    temp += "o" + input[i];
+//    output += temp.ToLower();
+//}
+
+////    Skriv ut den förändrade texten
+//Console.WriteLine(output);
+//char[] vokaler = new char[] { 'a', 'o', 'u', 'i', 'e', 'å', 'ä', 'ö', 'y' };
+
+////Ta emot och spara en text från användaren
+//string input = Console.ReadLine();
+//string output = string.Empty;
+//bool isVokal = false;
+
+//for (int i = 0; i < input.Length; i++)
+//{
+//    output += input[i];
+//    for (int j = 0; j < vokaler.Length; j++)
+//    {
+//        if (input[i] == vokaler[j])
+//        {
+//            isVokal = true;
+//            break;
+//        }
+//    }
+
+//    if (!isVokal)
+//    {
+//        output += "o" + input[i];
+//    }
+
+//    isVokal = false;
+//}
+
+//Console.WriteLine(output);
+
+#endregion
